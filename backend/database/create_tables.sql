@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS list (
+    id SERIAL PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    num_completos INTEGER NOT NULL,
+);
+
