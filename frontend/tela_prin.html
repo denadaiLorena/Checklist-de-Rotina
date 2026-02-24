@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="style/tela_prin.css">
+    <title>Checklist de Rotina</title>
+</head>
+<body>
+    
+    <div id="to_do">
+        <h1>Checklist de Rotina</h1>
+
+        <form action="" class="to-do-form">
+            <input type="text" name="description" placeholder="Escreva a sua tarefa aqui" required>
+            <button type="submit" class="form-button">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </form>
+
+        <div class="tasks">
+            <div class="task">
+                <input type="checkbox" name="progress" class="progress">
+            </div>
+            <p class="task-description">
+                Tema de casa
+            </p>
+
+            <div>
+                <a href="" class="action-button edit-button">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </a>
+
+                <a href="" class="action-button delete-button">
+                   <i class="fa-regular fa-trash-can"></i>
+                </a>
+            </div>
+
+            <form action="" class="to-do-form">
+                <input type="text" name="description" placeholder="Edite a sua tarefa aqui">
+
+                <button type="submit" class="form-button confirm-button">
+                    <i class="fa-solid fa-check"></i>
+                </button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
