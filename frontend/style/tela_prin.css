@@ -133,3 +133,18 @@ body {
     cursor: pointer;
     scale: 1.1;
 }
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    background-color: #f3c853;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.tasks .task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
