@@ -90,12 +90,12 @@ body {
     background-color: rgba(153, 202, 252, 0.932);
     border-radius: 8px;
     padding: 15px;
-    width: 470px;
+    width: 350px;
 }
 
 #to_do h1 {
     color: #fffcfc;
-    font-size: 30px;
+    font-size: 26px;
     text-transform: uppercase;
 }
 
@@ -125,7 +125,7 @@ body {
     min-height: 35px;
     background-color: #fffcfc;
     border: 2px solid #0b1653;
-    font-size: 20px;
+    font-size: 18px;
     transition: scale 0.5s ease;
 }
 
@@ -148,3 +148,110 @@ body {
     gap: 10px;
 }
 
+.task .progress {
+    margin-right: 10px;
+}
+
+.task .task-description {
+    color: #0b1653;
+    font-size: 17px;
+    padding: 4px 0px;
+    width: 100%;
+}
+
+.task .task-actions {
+    display: flex;
+    gap: 15px
+}
+
+.action-button{
+    font-size: 18px;
+    color: #0b1653;
+    transition: scale 0.5s ease;
+}
+
+.action-button:hover {
+    scale: 1.2;
+    cursor: pointer;
+}
+
+.action-button.edit-button {
+    color: #3648ad
+}
+
+.action-button.delete-button {
+    color:#c43b22
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (min-width: 700px) { /*o @media é como uma condição, avisando o navegador que algo vem aí*/
+    #to_do { /*Se a largura da tela for de no máximo 600px, então o width será esse*/
+        width: 580px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #to_do {
+        width: 600px;
+    }
+
+    #to_do h1 {
+        font-size: 30px;
+    }
+
+    .to_do_form input {
+        font-size: 18px;
+    }
+
+    .to_do_form .form-button {
+        font-size: 20px;
+    }
+
+    .task .task-description {
+        font-size: 17px;
+    }
+
+    .action-button{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #to_do {
+        width: 320px;
+    }
+
+     #to_do h1 {
+        font-size: 22px;
+    }
+
+     .to_do_form input {
+        font-size: 14px;
+    }
+
+    .to_do_form .form-button {
+        font-size: 15px;
+        min-width: 35px;
+        min-height: 25px;
+    }
+
+    .task .task-description {
+        font-size: 13px;
+    }
+
+    .action-button{
+        font-size: 14px;
+    }
+
+    .task .task-actions {
+        gap: 10px
+    }
+
+    .task .progress {
+        margin-right: 0px;
+    }
+
+}
