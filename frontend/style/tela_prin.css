@@ -152,6 +152,11 @@ body {
     margin-right: 10px;
 }
 
+.task .progress.done + .task-description { /*Faz o corte em cima da task quando o checkbox marcado*/
+    text-decoration: line-through;
+    color: #0b1653;
+}
+
 .task .task-description {
     color: #0b1653;
     font-size: 17px;
@@ -184,7 +189,7 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 @media screen and (min-width: 700px) { /*o @media é como uma condição, avisando o navegador que algo vem aí*/
