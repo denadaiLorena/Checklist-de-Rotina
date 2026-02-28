@@ -38,37 +38,37 @@ body {
 }
 
 .slide:nth-child(1) { /*o nth-child() é um seletor que pega os slides pela ordem*/
-    background-image: url('/frontend/img/image1.jpg');
+    background-image: url('/img/image1.jpg');
     animation-delay: 0s;/*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
 }
 
 .slide:nth-child(2) {
-    background-image: url('/frontend/img/image2.jpg');
+    background-image: url('/img/image2.jpg');
     animation-delay: 10s;/*depois de 20 segundos o segundo slide aparece*/
 }
 
 .slide:nth-child(3) {
-    background-image: url('/frontend/img/image3.jpg');
+    background-image: url('/img/image3.jpg');
     animation-delay: 20s;
 }
 
 .slide:nth-child(4) {
-    background-image: url('/frontend/img/image4.jpg');
+    background-image: url('/img/image4.jpg');
     animation-delay: 30s;
 }
 
 .slide:nth-child(5) { /*o nth-child() é um seletor que pega os slides pela ordem*/
-    background-image: url('/frontend/img/image5.jpg');
+    background-image: url('/img/image5.jpg');
     animation-delay: 40s;/*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
 }
 
 .slide:nth-child(6) { /*o nth-child() é um seletor que pega os slides pela ordem*/
-    background-image: url('/frontend/img/image6.jpg');
+    background-image: url('/img/image6.jpg');
     animation-delay: 50s;/*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
 }
 
 .slide:nth-child(7) { /*o nth-child() é um seletor que pega os slides pela ordem*/
-    background-image: url('/frontend/img/image7.jpg');
+    background-image: url('/img/image7.jpg');
     animation-delay: 60s;/*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
 }
 
