@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS tasks (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
-    date DATE NOT NULL,
+    date DATE,
     completo BOOLEAN NOT NULL DEFAULT FALSE
 );
 
@@ -12,3 +12,5 @@ CREATE TABLE IF NOT EXISTS usuario (
    senha_hash TEXT NULL,
    ativo BOOLEAN NOT NULL DEFAULT TRUE,
 );
+
+ALTER TABLE tasks ALTER COLUMN date DROP NOT NULL;

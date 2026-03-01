@@ -1,8 +1,33 @@
 <?php
 require_once('../backend/database/connection.php');
-?>
+require_once('../backend/src/tasksController.php');
 
-<!DOCTYPE html>
+$tasks = [];
+
+$sql = $pdo->query("SELECT * FROM tasks");
+
+try{
+    if ($sql->rowcount() > 0) {
+    $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+} catch (PDOException $e){
+    echo "Erro ao buscar tarefas: " . $e->getMessage();
+    }
+
+$taskController = new tasksController(new Tasks)
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $acao = $_POST['acao'] ?? '';
+
+    switch ($acao) {
+
+        case: 'criar':
+
+
+    }
+}
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,44 +51,50 @@ require_once('../backend/database/connection.php');
     </div>
 
     <div id="to_do">
-            <h1>Seu Checklist</h1>
+        <h1>Seu Checklist</h1>
 
-            <form action="" class="to_do_form">
+        <form action="" method="POST" class="to_do_form">
+                <input type="hidden" name="acao" value="criar">
                 <input type="text" name="description" placeholder="Escreva a sua tarefa aqui" required>
                 <button type="submit" class="form-button">
                     <i class="fa-solid fa-plus"></i>
                 </button>
-            </form>
+        </form>
 
-            <div class="tasks">
-                <div class="task">
-                    <input type="checkbox" name="progress" class="progress">
+        <div class="tasks">
 
-                    <p class="task-description">
-                        Tema de casa
-                    </p>
+           <?php foreach($tasks as $task): ?>
+               <div class="task">
+                   <input type="checkbox"
+                    name="progress"
+                    class="progress"
+                    <?= $task['completo'] ? 'checked' : ''?>
+                    >
 
-                    <div class="task-actions">
-                        <a class="action-button edit-button">
-                            <i class="fa-regular fa-pen-to-square"></i>
-                        </a>
+                   <p class="task-description">
+                       <?= $task['titulo']?>
+                   </p>
 
-                        <a href="" class="action-button delete-button">
-                        <i class="fa-regular fa-trash-can"></i>
-                        </a>
-                    </div>
+                   <div class="task-actions">
+                       <a class="action-button edit-button">
+                           <i class="fa-regular fa-pen-to-square"></i>
+                       </a>
 
-                    <form action="" class="to_do_form edit-task hidden">
-                        <input type="text" name="description" placeholder="Edite a sua tarefa aqui">
+                       <a href="" class="action-button delete-button">
+                       <i class="fa-regular fa-trash-can"></i>
+                       </a>
+                   </div>
 
-                        <button type="submit" class="form-button confirm-button">
-                            <i class="fa-solid fa-check"></i>
-                        </button>
-                    </form>
+                   <form action="" class="to_do_form edit-task hidden">
+                       <input type="text" name="description" placeholder="Edite a sua tarefa aqui">
 
-                </div>
-            </div>
-    
+                       <button type="submit" class="form-button confirm-button">
+                           <i class="fa-solid fa-check"></i>
+                       </button>
+                   </form>
+               </div>
+           <?php endforeach ?>
+        </div>
     </div>
     
     <script src="/js/tela_prin.js"></script>
