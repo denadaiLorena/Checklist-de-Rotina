@@ -10,15 +10,18 @@ class TasksRepository {
     }
 
     public function criarTask(string $titulo) {
+        $log = __DIR__ . '/debug.log';
+        $T0 = microtime(true);
 
         if ($titulo) {
             $sql = $this->pdo->prepare("INSERT INTO tasks (titulo) VALUES (:titulo)");
+            file_put_contents($log, "Repo prepare: ".round((microtime(true)-$T0)*1000,1)."ms\n", FILE_APPEND);
+
             $sql->bindValue(':titulo', $titulo);
+            file_put_contents($log, "Repo bind: ".round((microtime(true)-$T0)*1000,1)."ms\n", FILE_APPEND);
 
             $sql->execute();
-
-            header('Location: index.php?ok=1');
-            exit;
+            file_put_contents($log, "Repo execute: ".round((microtime(true)-$T0)*1000,1)."ms\n", FILE_APPEND);
         }
     }
 
@@ -36,7 +39,7 @@ class TasksRepository {
     }
 
     public function deletarTask(int $id) {
-        $sql = $this->pdo->preparate("DELETE FROM tasks WHERE id = :id");
+        $sql = $this->pdo->prepare("DELETE FROM tasks WHERE id = :id");
         $sql->bindvalue(':id', $id, PDO::PARAM_INT);
 
         $sql->execute();

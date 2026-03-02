@@ -1,0 +1,7 @@
+
+[02-Mar-2026 14:15:24 UTC] T0 start
+[02-Mar-2026 14:15:24 UTC] T1 antes repo: 3.9ms
+Repo prepare: 0ms
+Repo bind: 1.7ms
+Repo execute: 403.2ms
+[02-Mar-2026 14:15:25 UTC] T2 depois repo: 601.9ms
