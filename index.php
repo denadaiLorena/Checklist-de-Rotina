@@ -23,7 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tasksController->editarTask();
             break;
         case 'marcar_feita':
-            $tasksController->criarTask();
+            /*$tasksController->marcarFeita();*/
+            break;
+        case 'criar_ajax':
+            $tasksController->criar_ajax();
+            break;
+        case 'deletar_ajax':
+            /*$tasksController->deletarTaskAjax();*/
             break;
         default:
             header('Location: tela_prin.php?erro=acao_invalida');

@@ -15,6 +15,7 @@ class Connection {
             return $pdo;
         } catch (PDOException $e) {
             echo ("Erro ao conectar ao banco: " . $e->getMessage());
+            throw $e;
         }
     }
    

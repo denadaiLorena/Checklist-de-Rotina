@@ -12,7 +12,13 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-y: auto; /*colocar como auto permite o scroll*/
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+html {
+    scroll-behavior: smooth; /*faz com que a rolagem seja suave, sem saltos bruscos*/
 }
 
 .slides {
@@ -137,19 +143,23 @@ body {
 .tasks {
     display: flex;
     flex-direction: column;
-    background-color: #f3c853;
+    background-color: rgba(153, 202, 252, 0.932);
     border-radius: 8px;
-    padding: 10px;
+    gap: 20px;
 }
 
 .tasks .task {
     display: flex;
     align-items: center;
     gap: 10px;
+    background-color: rgba(86, 136, 185, 0.932);
+    border-radius: 30px;
+    padding: 5px;
 }
 
 .task .progress {
-    margin-right: 10px;
+    margin-right: 0px;
+    margin-left: 10px;
 }
 
 .task .progress.done + .task-description { /*Faz o corte em cima da task quando o checkbox marcado*/
@@ -181,12 +191,12 @@ body {
 }
 
 .action-button.edit-button {
-    color: #3648ad;
+    color: #0b1653;
 }
 
 .action-button.delete-button {
-    color:#c43b22;
-    background-color: #f3c853;
+    color:#0b1653;
+    background-color: transparent;
     border: none;
 }
 

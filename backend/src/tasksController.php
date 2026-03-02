@@ -70,4 +70,35 @@ class tasksController {
             exit;
         }
     }
+
+    public function criar_ajax() {
+        header('Content-Type: application/json; charset=utf-8');
+
+        $titulo = filter_input(INPUT_POST, 'description');
+
+        try {
+            $id = $this->repo->criarTaskERetornarId($titulo);
+
+            $task = [
+                'id' => $id,
+                'titulo' => $titulo,
+                'completo' => false
+            ];
+
+            ob_start();
+            include __DIR__ . ('/../../frontend/task_item.php');
+            $task_html = ob_get_clean();
+
+            echo json_encode([
+                'ok' => true,
+                'task_html' => $task_html
+            ]);
+            exit;
+        } catch (PDOException $e) {
+            http_response_code(500);
+            echo json_encode(['ok' => false, 'error' => 'Erro no banco']);
+            exit;
+        }
+
+    }
 }

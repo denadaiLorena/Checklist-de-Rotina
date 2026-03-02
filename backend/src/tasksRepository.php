@@ -48,4 +48,13 @@ class TasksRepository {
         exit;
     }
 
+    public function criarTaskERetornarId(string $titulo): int {
+            $sql = $this->pdo->prepare("INSERT INTO tasks (titulo) VALUES (:titulo) RETURNING id");
+            $sql->bindValue(':titulo', $titulo);
+            $sql->execute();
+            
+            $id = (int) ($sql->fetchColumn());
+            return $id;
+    }
+
 }

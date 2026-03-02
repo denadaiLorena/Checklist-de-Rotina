@@ -5,3 +5,9 @@ Repo prepare: 0ms
 Repo bind: 1.7ms
 Repo execute: 403.2ms
 [02-Mar-2026 14:15:25 UTC] T2 depois repo: 601.9ms
+[02-Mar-2026 16:50:57 UTC] T0 start
+[02-Mar-2026 16:50:57 UTC] T1 antes repo: 15.9ms
+Repo prepare: 0ms
+Repo bind: 1.4ms
+Repo execute: 294.9ms
+[02-Mar-2026 16:50:58 UTC] T2 depois repo: 449.5ms

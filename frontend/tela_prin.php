@@ -39,53 +39,18 @@ try{
     <div id="to_do">
         <h1>Seu Checklist</h1>
 
-        <form action="index.php" method="POST" class="to_do_form">
-                <input type="hidden" name="acao" value="criar">
+        <form action="index.php" method="POST" class="to_do_form" id="createTaskForm">
+                <input type="hidden" name="acao" value="criar_ajax">
                 <input type="text" name="description" placeholder="Escreva a sua tarefa aqui" required>
                 <button type="submit" class="form-button">
                     <i class="fa-solid fa-plus"></i>
                 </button>
         </form>
 
-        <div class="tasks">
+        <div class="tasks" id="tasksList">
 
            <?php foreach($tasks as $task): ?>
-               <div class="task">
-                   <input type="checkbox"
-                    name="progress"
-                    class="progress"
-                    <?= $task['completo'] ? 'checked' : ''?>
-                    >
-
-                   <p class="task-description">
-                       <?= $task['titulo']?>
-                   </p>
-
-                   <div class="task-actions">
-                       <a class="action-button edit-button">
-                           <i class="fa-regular fa-pen-to-square"></i>
-                       </a>
-
-                       <form action="index.php" method="POST">
-                            <input type="hidden" name="acao" value="deletar">
-                            <input type="hidden" name="id" value="<?= $task['id']?>">
-                            <button type="submit" class="action-button delete-button">
-                                <i class="fa-regular fa-trash-can"></i>
-                            </button>
-                       </form>
-
-                   </div>
-
-                   <form action="index.php" method='POST' class="to_do_form edit-task hidden">
-                        <input type="hidden" name="acao" value="editar">
-                        <input type="hidden" name="id" value="<?= $task['id']?>">
-                        <input type="text" name="description" placeholder="Edite a sua tarefa aqui">
-
-                       <button type="submit" class="form-button confirm-button">
-                           <i class="fa-solid fa-check"></i>
-                       </button>
-                   </form>
-               </div>
+               <?php include __DIR__ . ('/task_item.php') ?> <!--O include se difere do require, pois o primeiro mesmo com algumas falhas continua processando código, enquanto o segundo para a aplicação-->
            <?php endforeach ?>
         </div>
     </div>
