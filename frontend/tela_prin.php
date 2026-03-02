@@ -1,31 +1,17 @@
 <?php
-require_once('../backend/database/connection.php');
-require_once('../backend/src/tasksController.php');
+require_once __DIR__ . ('/../backend/database/connection.php');
 
 $tasks = [];
-
+$pdo = (new Connection())->getConnection();
 $sql = $pdo->query("SELECT * FROM tasks");
 
 try{
-    if ($sql->rowcount() > 0) {
+    if ($sql->rowCount() > 0) {
     $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
     }
 } catch (PDOException $e){
     echo "Erro ao buscar tarefas: " . $e->getMessage();
     }
-
-$taskController = new tasksController(new Tasks)
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $acao = $_POST['acao'] ?? '';
-
-    switch ($acao) {
-
-        case: 'criar':
-
-
-    }
-}
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -33,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="/style/tela_prin.css">
+    <link rel="stylesheet" href="frontend/style/tela_prin.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
        
     <title> Seu Checklist</title>
@@ -53,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div id="to_do">
         <h1>Seu Checklist</h1>
 
-        <form action="" method="POST" class="to_do_form">
+        <form action="index.php" method="POST" class="to_do_form">
                 <input type="hidden" name="acao" value="criar">
                 <input type="text" name="description" placeholder="Escreva a sua tarefa aqui" required>
                 <button type="submit" class="form-button">
@@ -80,13 +66,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                            <i class="fa-regular fa-pen-to-square"></i>
                        </a>
 
-                       <a href="" class="action-button delete-button">
-                       <i class="fa-regular fa-trash-can"></i>
-                       </a>
+                       <form action="index.php" method="POST">
+                            <input type="hidden" name="acao" value="deletar">
+                            <input type="hidden" name="id" value="<?= $task['id']?>">
+                            <button type="submit" class="action-button delete-button">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                       </form>
+
                    </div>
 
-                   <form action="" class="to_do_form edit-task hidden">
-                       <input type="text" name="description" placeholder="Edite a sua tarefa aqui">
+                   <form action="index.php" method='POST' class="to_do_form edit-task hidden">
+                        <input type="hidden" name="acao" value="editar">
+                        <input type="hidden" name="id" value="<?= $task['id']?>">
+                        <input type="text" name="description" placeholder="Edite a sua tarefa aqui">
 
                        <button type="submit" class="form-button confirm-button">
                            <i class="fa-solid fa-check"></i>
@@ -97,6 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
     
-    <script src="/js/tela_prin.js"></script>
+    <script src="/frontend/js/tela_prin.js"></script>
 </body>
 </html>

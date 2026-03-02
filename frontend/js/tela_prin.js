@@ -7,13 +7,13 @@ $(document).ready(function(){
         $task.find('.edit-task').removeClass('hidden');
         });
 
-        $('.progress').on('click', function() {
-            if($(this).is(':checked')) {
-                $(this).addClass('done');
-            } else {
-                $(this).removeClass('done');
-            }
-        
-        });
+    $('.progress').on('click', function() {
+        if($(this).is(':checked')) {
+            $(this).addClass('done');
+        } else {
+            $(this).removeClass('done');
+        }
+    
+    });
 
     });

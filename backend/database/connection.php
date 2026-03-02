@@ -1,14 +1,27 @@
 <?php
 
-    $hostname = "aws-1-us-east-1.pooler.supabase.com";
-    $dbname = "postgres";
-    $port = 5432;
-    $username = "postgres.ldozdavubrsehsxeaofw";
-    $password = "6794check2026";
+class Connection {
+    private string $hostname = "aws-1-us-east-1.pooler.supabase.com";
+    private string $dbname = "postgres";
+    private int $port = 5432;
+    private string $username = "postgres.ldozdavubrsehsxeaofw";
+    private string $password = "6794check2026";
 
-    try {
-        $dsn = "pgsql:host=$hostname;port=$port;dbname=$dbname;sslmode=require";
-        $pdo = new PDO($dsn, $username, $password);
-    } catch (PDOException $e) {
-        echo ("Erro ao conectar ao banco: " . $e->getMessage());
+
+    public function getConnection() : PDO {
+        try {
+            $dsn = "pgsql:host={$this->hostname};port={$this->port};dbname={$this->dbname};sslmode=require";
+            $pdo = new PDO($dsn, $this->username, $this->password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+            return $pdo;
+        } catch (PDOException $e) {
+            echo ("Erro ao conectar ao banco: " . $e->getMessage());
+        }
     }
+   
+
+
+
+
+
+}
+    
