@@ -26,9 +26,10 @@ try{
 </head>
 <body>
 
-    <div id="loadingOvelay" class="loading-overlay hidden">
+     <div id="loadingOverlay" class="loading-overlay hidden">
         <div class="loading-spinner"></div>
-        <p>Salvando...</p>
+            <p>Salvando...</p>
+        </div>
     </div>
     
     <div class="slides">

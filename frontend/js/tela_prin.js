@@ -50,7 +50,8 @@ document.addEventListener('submit', async (e) => {
     }
 
     e.preventDefault(); /*Não deixa recarregar a página*/
-
+    const loading = document.getElementById('loadingOverlay');
+    loading.classList.remove('hidden');
     
     const res = await fetch(form.action, {
         method: 'POST',
@@ -58,6 +59,8 @@ document.addEventListener('submit', async (e) => {
     });
 
     const data = await res.json();
+    loading.classList.add('hidden');
+
     const task = data.task;
 
     console.log("STATUS: ", res.status);

@@ -27,6 +27,7 @@
 
                    </div>
 
+                   
                    <form action="index.php" method='POST' class="to_do_form edit-task hidden" id="editForm">
                         <input type="hidden" name="acao" value="editar_ajax">
                         <input type="hidden" name="id" value="<?= $task['id']?>">
