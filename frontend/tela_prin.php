@@ -25,6 +25,11 @@ try{
     <title> Seu Checklist</title>
 </head>
 <body>
+
+    <div id="loadingOvelay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>Salvando...</p>
+    </div>
     
     <div class="slides">
         <div class="slide"></div>

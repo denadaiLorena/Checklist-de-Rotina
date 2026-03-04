@@ -26,16 +26,11 @@ class TasksRepository {
     }
 
     public function editarTask(int $id, string $titulo) {
-        if ($titulo) {
             $sql = $this->pdo->prepare("UPDATE tasks SET titulo = :titulo WHERE id = :id");
             $sql->bindValue(':titulo', $titulo);
             $sql->bindValue(':id', $id, PDO::PARAM_INT);
 
             $sql->execute();
-
-            header('Location: index.php?ok=1');
-            exit;
-        }
     }
 
     public function deletarTask(int $id) {

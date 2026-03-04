@@ -13,14 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     switch ($acao) {
 
-        case 'criar':
-            $tasksController->criarTask();
-            break;
         case 'deletar':
             $tasksController->deletarTask();
             break;
-        case 'editar':
-            $tasksController->editarTask();
+        case 'editar_ajax':
+            $tasksController->editarTask_ajax();
             break;
         case 'marcar_feita':
             /*$tasksController->marcarFeita();*/
