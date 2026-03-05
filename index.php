@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     switch ($acao) {
 
-        case 'deletar':
-            $tasksController->deletarTask();
+        case 'deletar_ajax':
+            $tasksController->deletarTask_ajax();
             break;
         case 'editar_ajax':
             $tasksController->editarTask_ajax();
@@ -24,9 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
         case 'criar_ajax':
             $tasksController->criar_ajax();
-            break;
-        case 'deletar_ajax':
-            /*$tasksController->deletarTaskAjax();*/
             break;
         default:
             header('Location: tela_prin.php?erro=acao_invalida');

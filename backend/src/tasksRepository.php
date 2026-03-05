@@ -38,9 +38,6 @@ class TasksRepository {
         $sql->bindvalue(':id', $id, PDO::PARAM_INT);
 
         $sql->execute();
-
-        header('Location: index.php?ok=1');
-        exit;
     }
 
     public function criarTaskERetornarId(string $titulo): int {

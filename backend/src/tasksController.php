@@ -124,11 +124,37 @@ class tasksController {
                 'ok' => true,
                 'task_html' => $task_html
             ]);
-            exit;
         } catch (PDOException $e) {
             http_response_code(500);
             echo json_encode(['ok' => false, 'error' => 'Erro no banco']);
-            exit;
         }
+        exit;
+    }
+
+    public function deletarTask_ajax() {
+        header('Content-Type: application/json; charset=utf-8');
+
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        try {
+            $this->repo->deletarTask($id);
+            $task = [
+                'id' => $id
+            ];
+
+            ob_start();
+            include __DIR__ . ('/../../frontend/task_item.php');
+            $task_html = ob_get_clean();
+
+             echo json_encode([
+                'ok' => true,
+                'task_html' => $task_html
+            ]);
+        } catch (PDOException $e) {
+            http_response_code(500);
+            echo json_encode(['ok' => false, 'error' => $e->getMessage()]);
+        }
+
+        exit;
     }
 }

@@ -17,8 +17,8 @@
                            <i class="fa-regular fa-pen-to-square"></i>
                        </a>
 
-                       <form action="index.php" method="POST">
-                            <input type="hidden" name="acao" value="deletar">
+                       <form action="index.php" method="POST" class="to_do_form delete-task">
+                            <input type="hidden" name="acao" value="deletar_ajax">
                             <input type="hidden" name="id" value="<?= $task['id']?>">
                             <button type="submit" class="action-button delete-button">
                                 <i class="fa-regular fa-trash-can"></i>
