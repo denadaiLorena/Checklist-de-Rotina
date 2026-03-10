@@ -26,7 +26,7 @@ try{
 </head>
 <body>
 
-     <div id="loadingOverlay" class="loading-overlay hidden">
+    <div id="loadingOverlay" class="loading-overlay hidden">
         <div class="loading-spinner"></div>
             <p>Salvando...</p>
         </div>

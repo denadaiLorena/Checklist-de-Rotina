@@ -15,42 +15,18 @@ $(document).ready(function(){
     });
 });
 
-document.getElementById('createTaskForm').addEventListener('submit', async (e) => {
-
-    e.preventDefault(); /*Não deixa recarregar a página*/
-
-    const form = e.target;
-    const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form)
-    });
-
-    const data = await res.json();
-    const task = data.task;
-
-    console.log("STATUS: ", res.status);
-    console.log("JSON recebido: ", data);
-
-    if(!res.ok || !data.ok) {
-        alert("Erro ao criar tarefa");
-        return;
-    }
-
-    document.getElementById('tasksList').insertAdjacentHTML('afterbegin', data.task_html);
-
-    form.reset();
-
-});
 
 document.addEventListener('submit', async (e) => {
+     e.preventDefault(); /*Não deixa recarregar a página*/
 
     const form = e.target;
     if (!(form instanceof HTMLFormElement)) return;
 
-    editForm = form.classList.contains('edit-task');
-    deleteForm = form.classList.contains('delete-task');
+    const editForm = form.classList.contains('edit-task');
+    const deleteForm = form.classList.contains('delete-task');
+    const createForm = form.classList.contains('to_do_form');
 
-        e.preventDefault(); /*Não deixa recarregar a página*/
+       
         const loading = document.getElementById('loadingOverlay');
         loading.classList.remove('hidden');
 
@@ -61,7 +37,6 @@ document.addEventListener('submit', async (e) => {
             });
 
             const data = await res.json();
-            loading.classList.add('hidden');
             const task = data.task;
 
             console.log("STATUS: ", res.status);
@@ -71,7 +46,13 @@ document.addEventListener('submit', async (e) => {
                 alert("Erro ao criar tarefa");
                 return;
             }
-           
+
+            if (createForm) {
+                document.getElementById('tasksList').insertAdjacentHTML('afterbegin', data.task_html);
+                form.reset();
+                return;
+            }
+
             const taskElement = form.closest('.task');
             if (!taskElement) {
                 console.error("Task não encontrada no DOM");
@@ -88,9 +69,9 @@ document.addEventListener('submit', async (e) => {
                 taskElement.querySelector('.progress').classList.remove('hidden');
                 taskElement.querySelector('.task-description').classList.remove('hidden');
                 taskElement.querySelector('.task-actions').classList.remove('hidden');
-            } else {
+            } else if (deleteForm) {
                 taskElement.remove();
-            }
+            } 
         } catch (error) {
             console.error(error);
             alert("Erro ao processar a requisição");

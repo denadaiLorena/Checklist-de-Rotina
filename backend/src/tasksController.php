@@ -146,15 +146,15 @@ class tasksController {
             include __DIR__ . ('/../../frontend/task_item.php');
             $task_html = ob_get_clean();
 
-             echo json_encode([
+            echo json_encode([
                 'ok' => true,
                 'task_html' => $task_html
             ]);
+            
         } catch (PDOException $e) {
             http_response_code(500);
             echo json_encode(['ok' => false, 'error' => $e->getMessage()]);
         }
-
         exit;
     }
 }
