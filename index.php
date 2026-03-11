@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'editar_ajax':
             $tasksController->editarTask_ajax();
             break;
-        case 'marcar_feita':
-            /*$tasksController->marcarFeita();*/
+        case 'marcarFeita_ajax':
+            $tasksController->marcarFeita_ajax();
             break;
         case 'criar_ajax':
             $tasksController->criar_ajax();

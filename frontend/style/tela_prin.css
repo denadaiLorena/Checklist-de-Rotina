@@ -108,7 +108,6 @@ html {
 .to_do_form {
     display: flex;
     width: 100%;
-
 }
 
 .to_do_form input {
@@ -119,6 +118,16 @@ html {
     width: 100%;
     padding: 5px;
     border-bottom: 2px solid #0b1653;
+}
+
+.edit-task {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+}
+
+.edit-task input {
+    width: 100%;
 }
 
 .to_do_form input:focus-visible {
@@ -160,6 +169,12 @@ html {
 .task .progress {
     margin-right: 0px;
     margin-left: 10px;
+}
+
+.marcar-task {
+    display: flex;
+    width: 100%;
+    gap: 10px;
 }
 
 .task .progress.done + .task-description { /*Faz o corte em cima da task quando o checkbox marcado*/
