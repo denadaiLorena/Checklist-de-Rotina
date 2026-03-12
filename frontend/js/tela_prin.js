@@ -3,9 +3,11 @@
 $(document).ready(function () {
     $(document).on('click', '.edit-button', function () {
         var $task = $(this).closest('.task');
+        
         $task.find('.progress').addClass('hidden');
         $task.find('.task-description').addClass('hidden');
         $task.find('.task-actions').addClass('hidden');
+        $task.find('.marcar-feita').addClass('hidden');
         $task.find('.edit-task').removeClass('hidden');
         $task.find('input[name="description"]').focus();
     });

@@ -120,15 +120,6 @@ html {
     border-bottom: 2px solid #0b1653;
 }
 
-.edit-task {
-    display: flex;
-    flex: 1;
-    min-width: 0;
-}
-
-.edit-task input {
-    width: 100%;
-}
 
 .to_do_form input:focus-visible {
     outline: none;
@@ -149,6 +140,25 @@ html {
     scale: 1.1;
 }
 
+.edit-task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.edit-task input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+}
+
+.edit-task button {
+    flex-shrink: 0;
+}
+
 .tasks {
     display: flex;
     flex-direction: column;
@@ -164,7 +174,10 @@ html {
     background-color: rgba(86, 136, 185, 0.932);
     border-radius: 30px;
     padding: 5px;
+    width: 570px;
+    height: 49px;
 }
+
 
 .task .progress {
     margin-right: 0px;

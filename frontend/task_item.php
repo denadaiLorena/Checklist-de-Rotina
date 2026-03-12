@@ -3,17 +3,17 @@
 
 <div class="task" data-task-id="<?= $task['id'] ?>">
     <form action="index.php" method="POST" class="marcar-task">
-    <input type="hidden" name="acao" value="marcarFeita_ajax">
-    <input type="hidden" name="id" value="<?= $task['id'] ?>">
-    <input type="checkbox"
-        name="progress"
-        class="progress <?= $task['completo'] ? 'done' : '' ?>"
-        <?= $task['completo'] ? 'checked' : '' ?>>
-
+        <input type="hidden" name="acao" value="marcarFeita_ajax">
+        <input type="hidden" name="id" value="<?= $task['id'] ?>">
+        <input type="checkbox"
+            name="progress"
+            class="progress <?= $task['completo'] ? 'done' : '' ?>"
+            <?= $task['completo'] ? 'checked' : '' ?>>
         <p class="task-description">
             <?= htmlspecialchars($task['titulo']) ?>
-        </p>
-    </form>  
+        </p>    
+    </form>
+    
 
     <div class="task-actions">
         <a class="action-button edit-button">
