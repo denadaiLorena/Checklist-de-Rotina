@@ -3,7 +3,7 @@ require_once __DIR__ . ('/../backend/database/connection.php');
 
 $tasks = [];
 $pdo = (new Connection())->getConnection();
-$sql = $pdo->query("SELECT * FROM tasks");
+$sql = $pdo->query("SELECT * FROM tasks ORDER BY id DESC");
 
 try{
     if ($sql->rowCount() > 0) {

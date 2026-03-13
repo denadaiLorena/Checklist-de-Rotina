@@ -4,7 +4,7 @@
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing:  border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -12,80 +12,126 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    overflow-y: auto; /*colocar como auto permite o scroll*/
+    overflow-y: auto;
+    /*colocar como auto permite o scroll*/
     padding-bottom: 30px;
     padding-top: 30px;
+
 }
 
 html {
-    scroll-behavior: smooth; /*faz com que a rolagem seja suave, sem saltos bruscos*/
+    scroll-behavior: smooth;
+    /*faz com que a rolagem seja suave, sem saltos bruscos*/
 }
 
 .slides {
-    position: fixed; /*Deixa o elemento fique fixo, no caso o fundo, mesmo que o usuário role a página*/
+    position: fixed;
+    /*Deixa o elemento fique fixo, no caso o fundo, mesmo que o usuário role a página*/
     top: 0;
     left: 0;
-    width: 100%; /*largura e altura ocupam toda a página do navegador*/
+    width: 100%;
+    /*largura e altura ocupam toda a página do navegador*/
     height: 100%;
-    z-index: -1; /*z é o índice de profunidade, fazendo com que o fundo fique atrás dos elementos*/
+    z-index: -1;
+    /*z é o índice de profunidade, fazendo com que o fundo fique atrás dos elementos*/
 }
 
 .slide {
-    position: absolute; /*empilha as imagens como uma pilha de pápeis*/
+    position: absolute;
+    /*empilha as imagens como uma pilha de pápeis*/
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover; /*mantém a imagem à conta da tela, esticando ou cortando*/
-    background-position: center; /*faz com que o centro da imagem fique em foco*/
-    background-repeat: no-repeat; 
-    opacity: 0; /*começa-se invisível*/
-    animation: fadeInOut 70s infinite; /*os slides vão durar 30s no total e repetir infinitamente*/
+    background-size: cover;
+    /*mantém a imagem à conta da tela, esticando ou cortando*/
+    background-position: center;
+    /*faz com que o centro da imagem fique em foco*/
+    background-repeat: no-repeat;
+    opacity: 0;
+    /*começa-se invisível*/
+    animation: fadeInOut 70s infinite;
+    /*os slides vão durar 30s no total e repetir infinitamente*/
 }
 
-.slide:nth-child(1) { /*o nth-child() é um seletor que pega os slides pela ordem*/
+.slide:nth-child(1) {
+    /*o nth-child() é um seletor que pega os slides pela ordem*/
     background-image: url('/frontend/img/image1.jpg');
-    animation-delay: 0s;/*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
+    animation-delay: 0s;
+    /*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
+    filter: blur(8px);
 }
 
 .slide:nth-child(2) {
     background-image: url('/frontend/img/image2.jpg');
-    animation-delay: 10s;/*depois de 20 segundos o segundo slide aparece*/
+    animation-delay: 10s;
+    /*depois de 20 segundos o segundo slide aparece*/
+    filter: blur(8px);
 }
 
 .slide:nth-child(3) {
     background-image: url('/frontend/img/image3.jpg');
     animation-delay: 20s;
+    filter: blur(8px);
 }
 
 .slide:nth-child(4) {
     background-image: url('/frontend/img/image4.jpg');
     animation-delay: 30s;
+    filter: blur(8px);
 }
 
-.slide:nth-child(5) { /*o nth-child() é um seletor que pega os slides pela ordem*/
+.slide:nth-child(5) {
+    /*o nth-child() é um seletor que pega os slides pela ordem*/
     background-image: url('/frontend/img/image5.jpg');
-    animation-delay: 40s;/*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
+    animation-delay: 40s;
+    /*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
+    filter: blur(8px);
 }
 
-.slide:nth-child(6) { /*o nth-child() é um seletor que pega os slides pela ordem*/
+.slide:nth-child(6) {
+    /*o nth-child() é um seletor que pega os slides pela ordem*/
     background-image: url('/frontend/img/image6.jpg');
-    animation-delay: 50s;/*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
+    animation-delay: 50s;
+    /*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
+    filter: blur(8px);
 }
 
-.slide:nth-child(7) { /*o nth-child() é um seletor que pega os slides pela ordem*/
+.slide:nth-child(7) {
+    /*o nth-child() é um seletor que pega os slides pela ordem*/
     background-image: url('/frontend/img/image7.jpg');
-    animation-delay: 60s;/*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
+    animation-delay: 60s;
+    /*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
+    filter: blur(8px);
 }
 
 
-/*Animação do Fade-In e do Fade-Out para sair e entrar lentamente*/ 
-@keyframes fadeInOut { /*define os frames de transparência. Roteiro do que deve aparecer*/
-    0% { opacity: 0; }
-    2% { opacity: 1; }   /* Fade in rápido */
-    14% { opacity: 1; }  /* Fica visível até a próxima começar */
-    16% { opacity: 0; }  /* Fade out */
-    100% { opacity: 0; }
+/*Animação do Fade-In e do Fade-Out para sair e entrar lentamente*/
+@keyframes fadeInOut {
+
+    /*define os frames de transparência. Roteiro do que deve aparecer*/
+    0% {
+        opacity: 0;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    /* Fade in rápido */
+    14% {
+        opacity: 1;
+    }
+
+    /* Fica visível até a próxima começar */
+    16% {
+        opacity: 0;
+    }
+
+    /* Fade out */
+    100% {
+        opacity: 0;
+    }
 }
 
 
@@ -93,14 +139,15 @@ html {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    background-color: rgba(153, 202, 252, 0.932);
-    border-radius: 8px;
+    background-color: rgba(200, 225, 255, 0.75);
+    border-radius: 10px;
     padding: 15px;
     width: 350px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.226);
 }
 
 #to_do h1 {
-    color: #fffcfc;
+    color: #1B263B;
     font-size: 26px;
     text-transform: uppercase;
 }
@@ -146,7 +193,7 @@ html {
     gap: 10px;
     flex: 1;
     margin: 0;
-    padding: 0;
+    padding: 0 12px;
 }
 
 .edit-task input[type="text"] {
@@ -162,7 +209,7 @@ html {
 .tasks {
     display: flex;
     flex-direction: column;
-    background-color: rgba(153, 202, 252, 0.932);
+    background-color: transparent;
     border-radius: 8px;
     gap: 20px;
 }
@@ -171,17 +218,23 @@ html {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: rgba(86, 136, 185, 0.932);
+    background-color: rgba(120, 161, 210, 0.753);
     border-radius: 30px;
     padding: 5px;
     width: 570px;
     height: 49px;
 }
 
-
 .task .progress {
     margin-right: 0px;
     margin-left: 10px;
+    margin-top: 5px;
+}
+
+input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    accent-color: #0b1653;
 }
 
 .marcar-task {
@@ -190,7 +243,8 @@ html {
     gap: 10px;
 }
 
-.task .progress.done + .task-description { /*Faz o corte em cima da task quando o checkbox marcado*/
+.task .progress.done+.task-description {
+    /*Faz o corte em cima da task quando o checkbox marcado*/
     text-decoration: line-through;
     color: #0b1653;
 }
@@ -207,7 +261,7 @@ html {
     gap: 15px
 }
 
-.action-button{
+.action-button {
     font-size: 18px;
     color: #0b1653;
     transition: scale 0.5s ease;
@@ -223,7 +277,7 @@ html {
 }
 
 .action-button.delete-button {
-    color:#0b1653;
+    color: #0b1653;
     background-color: transparent;
     border: none;
 }
@@ -232,8 +286,11 @@ html {
     display: none !important;
 }
 
-@media screen and (min-width: 700px) { /*o @media é como uma condição, avisando o navegador que algo vem aí*/
-    #to_do { /*Se a largura da tela for de no máximo 600px, então o width será esse*/
+@media screen and (min-width: 700px) {
+
+    /*o @media é como uma condição, avisando o navegador que algo vem aí*/
+    #to_do {
+        /*Se a largura da tela for de no máximo 600px, então o width será esse*/
         width: 580px;
     }
 }
@@ -259,7 +316,7 @@ html {
         font-size: 17px;
     }
 
-    .action-button{
+    .action-button {
         font-size: 20px;
     }
 }
@@ -269,11 +326,11 @@ html {
         width: 320px;
     }
 
-     #to_do h1 {
+    #to_do h1 {
         font-size: 22px;
     }
 
-     .to_do_form input {
+    .to_do_form input {
         font-size: 14px;
     }
 
@@ -287,7 +344,7 @@ html {
         font-size: 13px;
     }
 
-    .action-button{
+    .action-button {
         font-size: 14px;
     }
 
@@ -305,19 +362,23 @@ html {
 
 .loading-overlay {
     position: fixed;
-    top: 0; /*começa no topo da tela, sem espaços*/
-    left: 0; /*começa no canto esquerdo da tela, sem espaços*/
+    top: 0;
+    /*começa no topo da tela, sem espaços*/
+    left: 0;
+    /*começa no canto esquerdo da tela, sem espaços*/
     width: 100%;
     height: 100%;
 
-    
-    background: rgb(0, 0, 0, 0.5); /*é um preto com opacidade, fazendo com que o fundo fique escurecido*/
+
+    background: rgb(0, 0, 0, 0.5);
+    /*é um preto com opacidade, fazendo com que o fundo fique escurecido*/
     font-weight: 600;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /*garante que o overlay fique acima de todos os outros elementos*/   
+    z-index: 1000;
+    /*garante que o overlay fique acima de todos os outros elementos*/
 }
 
 .loading-spinner {
@@ -325,15 +386,23 @@ html {
     height: 40px;
 
     border: 6px solid #fff;
-    border-top: 6px solid rgba(153, 202, 252, 0.932);; /*cor da borda do spinner*/
+    border-top: 6px solid rgba(153, 202, 252, 0.932);
+    ;
+    /*cor da borda do spinner*/
 
     border-radius: 50%;
-    animation: spin 0.8s linear infinite;;
+    animation: spin 0.8s linear infinite;
+    ;
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg);}
-    to { transform: rotate(360deg);}
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .loading-overlay p {

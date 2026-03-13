@@ -4,10 +4,10 @@ $(document).ready(function () {
     $(document).on('click', '.edit-button', function () {
         var $task = $(this).closest('.task');
         
+        $task.find('.marcar-task').addClass('hidden');
         $task.find('.progress').addClass('hidden');
         $task.find('.task-description').addClass('hidden');
         $task.find('.task-actions').addClass('hidden');
-        $task.find('.marcar-feita').addClass('hidden');
         $task.find('.edit-task').removeClass('hidden');
         $task.find('input[name="description"]').focus();
     });
@@ -64,7 +64,9 @@ document.addEventListener('submit', async (e) => {
             if (titleElement) {
                 titleElement.textContent = novoTitulo;
             }
+            
             taskElement.querySelector('.edit-task')?.classList.add('hidden');
+            taskElement.querySelector('.marcar-task')?.classList.remove('hidden');
             taskElement.querySelector('.progress')?.classList.remove('hidden');
             taskElement.querySelector('.task-description')?.classList.remove('hidden');
             taskElement.querySelector('.task-actions')?.classList.remove('hidden');
@@ -115,3 +117,44 @@ document.addEventListener('change', async (e) => {
         alert("Erro ao processar a requisição");
     }
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    const task = document.querySelectorAll('.task');
+
+    task.forEach(card => {
+        const checkbox = card.querySelector('input[type=checkbox]');
+        const texto = card.querySelector('.task-description');
+
+        card.addEventListener('click', () => {
+            checkbox.checked = !checkbox.checked;
+        });
+
+        card.addEventListener('dblclick', () => {
+            card.querySelector('.marcar-task')?.classList.add('hidden');
+            card.querySelector('.progress')?.classList.add('hidden');
+            card.querySelector('.task-description')?.classList.add('hidden');
+            card.querySelector('.task-actions')?.classList.add('hidden');
+            card.querySelector('.edit-task')?.classList.remove('hidden');
+            card.querySelector('input[name="description"]')?.focus();
+        });
+    });
+});
+
+
+/*
+window.addEventListener('DOMContentLoaded', () => {
+  // Seleciona o formulário
+  const form = document.querySelector('form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); // evita envio real
+    console.log('Formulário enviado!');
+  });
+
+  // Seleciona um input checkbox
+  const checkbox = document.querySelector('input[type="checkbox"]');
+  checkbox.addEventListener('change', (event) => {
+    console.log('Checkbox alterado!', event.target.checked);
+  });
+});
+
+Vou pegar essas funções ali e colocar dentro desta para evitar código desnecessário e confusões*/ 
