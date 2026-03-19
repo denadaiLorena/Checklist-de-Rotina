@@ -48,90 +48,10 @@ html {
     background-position: center;
     /*faz com que o centro da imagem fique em foco*/
     background-repeat: no-repeat;
-    opacity: 0;
-    /*começa-se invisível*/
-    animation: fadeInOut 70s infinite;
-    /*os slides vão durar 30s no total e repetir infinitamente*/
-}
-
-.slide:nth-child(1) {
-    /*o nth-child() é um seletor que pega os slides pela ordem*/
-    background-image: url('/frontend/img/image1.jpg');
-    animation-delay: 0s;
-    /*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
-    filter: blur(8px);
-}
-
-.slide:nth-child(2) {
     background-image: url('/frontend/img/image2.jpg');
     animation-delay: 10s;
     /*depois de 20 segundos o segundo slide aparece*/
     filter: blur(8px);
-}
-
-.slide:nth-child(3) {
-    background-image: url('/frontend/img/image3.jpg');
-    animation-delay: 20s;
-    filter: blur(8px);
-}
-
-.slide:nth-child(4) {
-    background-image: url('/frontend/img/image4.jpg');
-    animation-delay: 30s;
-    filter: blur(8px);
-}
-
-.slide:nth-child(5) {
-    /*o nth-child() é um seletor que pega os slides pela ordem*/
-    background-image: url('/frontend/img/image5.jpg');
-    animation-delay: 40s;
-    /*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
-    filter: blur(8px);
-}
-
-.slide:nth-child(6) {
-    /*o nth-child() é um seletor que pega os slides pela ordem*/
-    background-image: url('/frontend/img/image6.jpg');
-    animation-delay: 50s;
-    /*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
-    filter: blur(8px);
-}
-
-.slide:nth-child(7) {
-    /*o nth-child() é um seletor que pega os slides pela ordem*/
-    background-image: url('/frontend/img/image7.jpg');
-    animation-delay: 60s;
-    /*basicamente o código "atrasa" o slide até o momento onde ele irá aparecer*/
-    filter: blur(8px);
-}
-
-
-/*Animação do Fade-In e do Fade-Out para sair e entrar lentamente*/
-@keyframes fadeInOut {
-
-    /*define os frames de transparência. Roteiro do que deve aparecer*/
-    0% {
-        opacity: 0;
-    }
-
-    2% {
-        opacity: 1;
-    }
-
-    /* Fade in rápido */
-    14% {
-        opacity: 1;
-    }
-
-    /* Fica visível até a próxima começar */
-    16% {
-        opacity: 0;
-    }
-
-    /* Fade out */
-    100% {
-        opacity: 0;
-    }
 }
 
 
@@ -229,6 +149,7 @@ html {
     margin-right: 0px;
     margin-left: 10px;
     margin-top: 5px;
+    
 }
 
 input[type="checkbox"] {
