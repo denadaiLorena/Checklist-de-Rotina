@@ -125,6 +125,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('click', (e) => {
+        const marcarBtn = e.target.closest(".marcar-task");
+        if (!marcarBtn) return;
+
         const card = e.target.closest('.task');
         if (!card) return;
 
@@ -136,6 +139,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('dblclick', (e) => {
+        const editarBtn = e.target.closest(".task-description");
+        if (!editarBtn) return;
+
         const card = e.target.closest('.task');
         if (!card) return;
 
